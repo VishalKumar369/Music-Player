@@ -1,0 +1,7 @@
+const JWT_SECRET_USER="S3CR3T";
+const JWT_SECRET_ADMIN="Secr3T"
+
+module.exports={
+    JWT_SECRET_USER,
+    JWT_SECRET_ADMIN
+}
