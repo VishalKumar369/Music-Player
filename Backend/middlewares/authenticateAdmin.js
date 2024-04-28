@@ -3,12 +3,12 @@ const jwt=require("jsonwebtoken")
 
 const authenticateAdmin=(req,res,next)=>{
     const authHeader=req.headers.authorization;
+    console.log("authHeader",authHeader)
     if(authHeader){
         const token=authHeader;
-        console.log("token",token)
         jwt.verify(token,JWT_SECRET_ADMIN,(err,user)=>{
-            console.log("error",err)
             if(err) res.sendStatus(403);
+            console.log("error",err)
             req.user=user.username;
             next()
         });
