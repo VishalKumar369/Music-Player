@@ -1,0 +1,410 @@
+{
+	"info": {
+		"_postman_id": "2aadc108-2925-40ad-8e33-34ccb9c79104",
+		"name": "MusicLibrary",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "18991996",
+		"_collection_link": "https://travlpoint.postman.co/workspace/New-Team-Workspace~da098165-de6b-47a5-ba48-2f48a31e5d32/collection/18991996-2aadc108-2925-40ad-8e33-34ccb9c79104?action=share&source=collection_link&creator=18991996"
+	},
+	"item": [
+		{
+			"name": "user",
+			"item": [
+				{
+					"name": "signup",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\":\"Vishal Kumar\",\r\n    \"password\":\"P@ssw0rd\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/user/signup",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"user",
+								"signup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "signin",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\":\"Vishal Kumar\",\r\n    \"password\":\"P@ssw0rd\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/user/signin",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"user",
+								"signin"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAllSongs",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IlZpc2hhbCBLdW1hciIsInR5cGUiOiJVc2VyIiwiaWF0IjoxNzE0MzExMTI5LCJleHAiOjE3MTQzMTQ3Mjl9.wP98x6u49YI9sMosMxI2PIg8pqRaNkni5MOFj7TMYOs",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/user/songs/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"user",
+								"songs",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "admin",
+			"item": [
+				{
+					"name": "songs",
+					"item": [
+						{
+							"name": "create songs",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IlZpc2hhbCBLdW1hciIsInR5cGUiOiJBZG1pbiIsImlhdCI6MTcxNDMwNzQxMCwiZXhwIjoxNzE0MzExMDEwfQ.7LLGqJDDGbftZc5gtUD8ZaQ2oBBdJwsYoLb4XD0jDUY",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "song",
+											"value": "Khwaab",
+											"contentType": "multipart/form-data",
+											"type": "text"
+										},
+										{
+											"key": "singer",
+											"value": "vishal",
+											"contentType": "multipart/form-data",
+											"type": "text"
+										},
+										{
+											"key": "musicDirector",
+											"value": "vishal",
+											"contentType": "multipart/form-data",
+											"type": "text"
+										},
+										{
+											"key": "releaseDate",
+											"value": "28/04/24",
+											"contentType": "multipart/form-data",
+											"type": "text"
+										},
+										{
+											"key": "albumName",
+											"value": "jee le jara",
+											"contentType": "multipart/form-data",
+											"type": "text"
+										},
+										{
+											"key": "songFile",
+											"contentType": "multipart/form-data",
+											"type": "file",
+											"src": "postman-cloud:///1ef0548a-69ee-44b0-a2f4-e28862f8d090"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:3000/admin/songs",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"admin",
+										"songs"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "getAllSongs",
+							"request": {
+								"method": "GET",
+								"header": []
+							},
+							"response": []
+						},
+						{
+							"name": "update song",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IlZpc2hhbCBLdW1hciIsInR5cGUiOiJBZG1pbiIsImlhdCI6MTcxNDMwNTAyOSwiZXhwIjoxNzE0MzA4NjI5fQ.jYnI28eeB3G0qTkkQfEUVVoP9n5CklhpV_rbgveexsk",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "song",
+											"value": "khwaab",
+											"contentType": "multipart/form-data",
+											"type": "text"
+										},
+										{
+											"key": "singer",
+											"value": "vishal",
+											"contentType": "multipart/form-data",
+											"type": "text"
+										},
+										{
+											"key": "musicDirector",
+											"value": "vishal",
+											"contentType": "multipart/form-data",
+											"type": "text"
+										},
+										{
+											"key": "releaseDate",
+											"value": "28/05/24",
+											"contentType": "multipart/form-data",
+											"type": "text"
+										},
+										{
+											"key": "albumName",
+											"value": "jee le nhi",
+											"contentType": "multipart/form-data",
+											"type": "text"
+										},
+										{
+											"key": "songFile",
+											"contentType": "multipart/form-data",
+											"type": "file",
+											"src": "postman-cloud:///1ef0548a-69ee-44b0-a2f4-e28862f8d090"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:3000/admin/songs/:songId",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"admin",
+										"songs",
+										":songId"
+									],
+									"variable": [
+										{
+											"key": "songId",
+											"value": "662e378e1f8edb21b1731e6e"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete song",
+							"request": {
+								"method": "GET",
+								"header": []
+							},
+							"response": []
+						},
+						{
+							"name": "visibility",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"visible\":false\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/admin/songs/:songId/visibility",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"admin",
+										"songs",
+										":songId",
+										"visibility"
+									],
+									"variable": [
+										{
+											"key": "songId",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "signup",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\":\"Vishal Kumar\",\r\n    \"password\":\"P@ssw0rd\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/user/signup",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"user",
+								"signup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "signin",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\":\"Vishal Kumar\",\r\n    \"password\":\"P@ssw0rd\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/admin/signin",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"admin",
+								"signin"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "allUsers",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IlZpc2hhbCBLdW1hciIsInR5cGUiOiJBZG1pbiIsImlhdCI6MTcxNDI4MDI4NywiZXhwIjoxNzE0MjgzODg3fQ.p8gsxXVW8OHYFztCHhOej9ey0aRcRrjal3_WBksYUhM",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "text/html",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/admin/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"admin",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "userById",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "deleteUserById",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

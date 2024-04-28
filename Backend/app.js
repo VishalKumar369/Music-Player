@@ -1,6 +1,6 @@
 const express=require("express")
 const app=express()
-const PORT=3000
+const PORT=8001
 const userRoute=require("./Routes/user")
 const adminRoute=require("./Routes/admin")
 const cors=require("cors")

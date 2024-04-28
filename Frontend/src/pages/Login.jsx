@@ -1,12 +1,11 @@
-import React, { useState } from 'react';
+import React, {useEffect, useState} from 'react';
+import axios from 'axios';
+import {Link, useNavigate} from "react-router-dom";
 
 const Login = () => {
-	// State hooks for login and registration forms
 	const [username, setUsername] = useState('');
 	const [password, setPassword] = useState('');
-	const [isLoginView, setIsLoginView] = useState(true); // Toggle between login and registration views
-
-	// Handle changes to the username and password input fields
+	const navigate = useNavigate();
 	const handleUsernameChange = (event) => {
 		setUsername(event.target.value);
 	};
@@ -15,27 +14,30 @@ const Login = () => {
 		setPassword(event.target.value);
 	};
 
-	// Handle form submission
 	const handleSubmit = (event) => {
 		event.preventDefault();
-		if (isLoginView) {
-			console.log('Login attempted with username:', username, 'and password:', password);
-			// Add your login logic or API call here
-		} else {
-			console.log('Registration attempted with username:', username, 'and password:', password);
-			// Add your registration logic or API call here
+		console.log('Registration attempted with username:', username, 'and password', password);
+		const login= async () => {
+			const response = await axios.post('http://10.0.1.211:3000/user/signin', {
+				username: username,
+				password: password
+			});
+			const data = await response.data;
+			console.log(data);
+			localStorage.setItem('accessToken', data.token);
+			navigate('/home');
 		}
-	};
+		login();
+	}
 
-	// Toggle the view between login and registration
-	const toggleView = () => {
-		setIsLoginView(!isLoginView);
-	};
+
 
 	return (
 		<div className="bg-[#202020] min-h-screen flex flex-col justify-center items-center px-4">
 			<div className="w-full max-w-md p-6 bg-black rounded-2xl shadow-xl">
-				<h1 className="text-white text-4xl text-center mb-6">{isLoginView ? 'Welcome to Music Player' : 'Register for Music Player'}</h1>
+				<h1 className="text-white text-4xl text-center mb-6">
+					Welcome to Music Player
+				</h1>
 				<form className="space-y-6" onSubmit={handleSubmit}>
 					<div>
 						<label className="text-white block mb-2">Username</label>
@@ -43,7 +45,7 @@ const Login = () => {
 							type="text"
 							name="username"
 							placeholder="Username"
-							className="p-3 w-full border bg-transparent text-gray-800 rounded-md"
+							className="p-3 w-full border bg-transparent text-white rounded-md"
 							value={username}
 							onChange={handleUsernameChange}
 						/>
@@ -54,21 +56,21 @@ const Login = () => {
 							type="password"
 							name="password"
 							placeholder="Password"
-							className="p-3 w-full border bg-transparent text-gray-800 rounded"
+							className="p-3 w-full border bg-transparent text-white rounded "
 							value={password}
 							onChange={handlePasswordChange}
 						/>
 					</div>
 					<button type="submit" className="w-full bg-green-500 text-white py-2 rounded-full">
-						{isLoginView ? 'Login' : 'Register'}
+								Login
 					</button>
 				</form>
-				<button onClick={toggleView} className="mt-4 text-white hover:text-blue-500">
-					{isLoginView ? 'Need an account? Register here.' : 'Already have an account? Login here.'}
-				</button>
+				<Link to="/" className="text-white text-center block mt-4 hover:underline">
+					Don't have an account? Register here
+				</Link>
 			</div>
 		</div>
 	);
-};
+}
 
 export default Login;
