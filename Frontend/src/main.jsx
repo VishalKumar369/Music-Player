@@ -9,7 +9,6 @@ import AdminRegistration from "./pages/Admin/AdminRegistration.jsx";
 import AdminDashboard from "./pages/Dashboard.jsx";
 import AdminLogin from "./pages/Admin/AdminLogin.jsx";
 import AddMusic from "./components/AddMusic.jsx";
-import AllMusic from "./pages/Admin/AllMusic.jsx";
 
 const router = createBrowserRouter([
 	{
@@ -38,11 +37,6 @@ const router = createBrowserRouter([
 	,{
 		path:'/admin/dashboard',
 		element:<AdminDashboard/>
-	}
-	,{
-	path:'/admin/getAllMusic',
-		element:<AllMusic />
-
 	}
 
 ]);

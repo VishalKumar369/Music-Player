@@ -23,7 +23,7 @@ const Login = () => {
 				password: password
 			});
 			const data = await response.data;
-			console.log(data);
+			console.log(data.token);
 			localStorage.setItem('accessToken', data.token);
 			navigate('/home');
 		}
